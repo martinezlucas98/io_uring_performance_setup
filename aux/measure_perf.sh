@@ -3,18 +3,30 @@
 ENVOY_PID=$(pgrep envoy)
 DURATION=60
 RPS=1000
-PROTOCOL=https
-ENVOY_URL=https://127.0.0.1:10000/
+PROTOCOL=http1
+ENVOY_URL=http://127.0.0.1:10000/
+IS_IO_URING=0
 
-PLOT_OUT="${HOME}/Git/io_uring_performance_setup/output/${PROTOCOL}_${RPS}rps.png"
-PLOTTEXT_OUT="${HOME}/Git/io_uring_performance_setup/output/${PROTOCOL}_${RPS}rps_plot.txt"
-CPU_OUT="${HOME}/Git/io_uring_performance_setup/output/${PROTOCOL}_cpu_${RPS}rps.txt"
-MEM_OUT="${HOME}/Git/io_uring_performance_setup/output/${PROTOCOL}_mem_${RPS}rps.txt"
-BENCH_OUT="${HOME}/Git/io_uring_performance_setup/output/${PROTOCOL}_${RPS}rps.json"
-FORTIO_OUT="${HOME}/Git/io_uring_performance_setup/output/fortio/${PROTOCOL}_${RPS}rps.json"
-HUMAN_OUT="${HOME}/Git/io_uring_performance_setup/output/human_benchmark/${PROTOCOL}_${RPS}rps.txt"
 
-if [[ $PROTOCOL=https ]]; then
+IO_SOCKET=default
+if [[ "$IS_IO_URING" -gt 0 ]]; then
+    echo USING_IO_URING
+    IO_SOCKET=io_uring
+fi
+
+
+PLOT_OUT="${HOME}/Git/io_uring_performance_setup/output/${IO_SOCKET}/${PROTOCOL}_${RPS}rps.png"
+PLOTTEXT_OUT="${HOME}/Git/io_uring_performance_setup/output/${IO_SOCKET}/${PROTOCOL}_${RPS}rps_plot.txt"
+CPU_OUT="${HOME}/Git/io_uring_performance_setup/output/${IO_SOCKET}/${PROTOCOL}_cpu_${RPS}rps.txt"
+MEM_OUT="${HOME}/Git/io_uring_performance_setup/output/${IO_SOCKET}/${PROTOCOL}_mem_${RPS}rps.txt"
+BENCH_OUT="${HOME}/Git/io_uring_performance_setup/output/${IO_SOCKET}/${PROTOCOL}_${RPS}rps.json"
+FORTIO_OUT="${HOME}/Git/io_uring_performance_setup/output/${IO_SOCKET}/fortio/${PROTOCOL}_${RPS}rps.json"
+HUMAN_OUT="${HOME}/Git/io_uring_performance_setup/output/${IO_SOCKET}/human_benchmark/${PROTOCOL}_${RPS}rps.txt"
+
+echo $BENCH_OUT
+
+if [[ "$PROTOCOL" = "https" ]]; then
+    echo USING_HTTPS
     PROTOCOL=http1
 fi
 

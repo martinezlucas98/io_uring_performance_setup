@@ -1,0 +1,84 @@
+Nighthawk - A layer 7 protocol benchmarking tool.
+
+benchmark_http_client.latency_2xx (59999 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 517us,0s 001ms 044us,0s 026ms 119us,0s 001ms 288us
+Percentile,Count,Value(microseconds),Value
+0.5,30049,676,0s 000ms 676us
+0.75,45005,697,0s 000ms 697us
+0.8,48002,739,0s 000ms 739us
+0.9,54001,1915,0s 001ms 915us
+0.95,57000,2905,0s 002ms 905us
+0.990625,59437,7039,0s 007ms 039us
+0.99902344,59941,14468,0s 014ms 468us
+
+Queueing and connection setup latency (60000 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 027us,0s 000ms 035us,0s 003ms 227us,0s 000ms 031us
+Percentile,Count,Value(microseconds),Value
+0.5,30006,32,0s 000ms 032us
+0.75,45018,33,0s 000ms 033us
+0.8,48003,33,0s 000ms 033us
+0.9,54000,38,0s 000ms 038us
+0.95,57000,44,0s 000ms 044us
+0.990625,59438,68,0s 000ms 068us
+0.99902344,59942,160,0s 000ms 160us
+
+Request start to response end (59999 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 517us,0s 001ms 043us,0s 026ms 119us,0s 001ms 288us
+Percentile,Count,Value(microseconds),Value
+0.5,30058,676,0s 000ms 676us
+0.75,45013,697,0s 000ms 697us
+0.8,48001,739,0s 000ms 739us
+0.9,54000,1914,0s 001ms 914us
+0.95,57000,2905,0s 002ms 905us
+0.990625,59437,7039,0s 007ms 039us
+0.99902344,59941,14466,0s 014ms 466us
+
+Response body size in bytes (59999 samples)
+Min,Mean,Max,Pstdev
+10,10,10,0
+
+Response header size in bytes (59999 samples)
+Min,Mean,Max,Pstdev
+140,140.00116668611165,141,0.034136856254677786
+
+Blocking. Results are skewed when significant numbers are reported here. (2448 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 170us,0s 002ms 139us,0s 025ms 922us,0s 002ms 445us
+Percentile,Count,Value(microseconds),Value
+0.5,1224,1559,0s 001ms 559us
+0.75,1836,2625,0s 002ms 625us
+0.8,1959,3163,0s 003ms 163us
+0.9,2204,4768,0s 004ms 768us
+0.95,2326,6544,0s 006ms 544us
+0.990625,2426,12289,0s 012ms 289us
+0.99902344,2446,23307,0s 023ms 307us
+
+Initiation to completion (59999 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 569us,0s 001ms 107us,0s 026ms 167us,0s 001ms 309us
+Percentile,Count,Value(microseconds),Value
+0.5,30029,729,0s 000ms 729us
+0.75,45004,751,0s 000ms 751us
+0.8,48000,801,0s 000ms 801us
+0.9,54001,2025,0s 002ms 025us
+0.95,57001,3030,0s 003ms 030us
+0.990625,59437,7175,0s 007ms 175us
+0.99902344,59941,15105,0s 015ms 105us
+
+Counter,Value,Per second
+benchmark.http_2xx,59999,999.98
+cluster_manager.cluster_added,1,0.02
+default.total_match_count,1,0.02
+membership_change,1,0.02
+runtime.load_success,1,0.02
+runtime.override_dir_not_exists,1,0.02
+upstream_cx_http1_total,4,0.07
+upstream_cx_rx_bytes_total,11459879,190997.95
+upstream_cx_total,4,0.07
+upstream_cx_tx_bytes_total,2460000,40999.99
+upstream_rq_pending_total,1,0.02
+upstream_rq_total,60000,1000.00
+

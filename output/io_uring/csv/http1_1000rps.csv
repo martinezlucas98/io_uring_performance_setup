@@ -1,0 +1,84 @@
+Nighthawk - A layer 7 protocol benchmarking tool.
+
+benchmark_http_client.latency_2xx (59999 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 520us,0s 000ms 859us,0s 038ms 899us,0s 001ms 017us
+Percentile,Count,Value(microseconds),Value
+0.5,30113,680,0s 000ms 680us
+0.75,45005,688,0s 000ms 688us
+0.8,48008,693,0s 000ms 693us
+0.9,54000,778,0s 000ms 778us
+0.95,57000,1741,0s 001ms 741us
+0.990625,59437,5813,0s 005ms 813us
+0.99902344,59941,13022,0s 013ms 022us
+
+Queueing and connection setup latency (60000 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 027us,0s 000ms 033us,0s 000ms 974us,0s 000ms 007us
+Percentile,Count,Value(microseconds),Value
+0.5,30063,32,0s 000ms 032us
+0.75,45027,33,0s 000ms 033us
+0.8,48019,33,0s 000ms 033us
+0.9,54002,34,0s 000ms 034us
+0.95,57001,39,0s 000ms 039us
+0.990625,59439,54,0s 000ms 054us
+0.99902344,59942,79,0s 000ms 079us
+
+Request start to response end (59999 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 520us,0s 000ms 859us,0s 038ms 899us,0s 001ms 017us
+Percentile,Count,Value(microseconds),Value
+0.5,30040,679,0s 000ms 679us
+0.75,45003,688,0s 000ms 688us
+0.8,48014,692,0s 000ms 692us
+0.9,54001,777,0s 000ms 777us
+0.95,57000,1740,0s 001ms 740us
+0.990625,59437,5812,0s 005ms 812us
+0.99902344,59941,13021,0s 013ms 021us
+
+Response body size in bytes (59999 samples)
+Min,Mean,Max,Pstdev
+10,10,10,0
+
+Response header size in bytes (59999 samples)
+Min,Mean,Max,Pstdev
+140,140.0010166836115,141,0.03186926365367708
+
+Blocking. Results are skewed when significant numbers are reported here. (1225 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 181us,0s 001ms 935us,0s 035ms 348us,0s 002ms 480us
+Percentile,Count,Value(microseconds),Value
+0.5,613,1298,0s 001ms 298us
+0.75,920,2213,0s 002ms 213us
+0.8,980,2500,0s 002ms 500us
+0.9,1103,4486,0s 004ms 486us
+0.95,1164,6577,0s 006ms 577us
+0.990625,1214,12890,0s 012ms 890us
+0.99902344,1224,17547,0s 017ms 547us
+
+Initiation to completion (59999 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 572us,0s 000ms 916us,0s 038ms 955us,0s 001ms 025us
+Percentile,Count,Value(microseconds),Value
+0.5,30077,732,0s 000ms 732us
+0.75,45018,742,0s 000ms 742us
+0.8,48004,747,0s 000ms 747us
+0.9,54001,841,0s 000ms 841us
+0.95,57000,1844,0s 001ms 844us
+0.990625,59437,5887,0s 005ms 887us
+0.99902344,59941,13112,0s 013ms 112us
+
+Counter,Value,Per second
+benchmark.http_2xx,59999,999.98
+cluster_manager.cluster_added,1,0.02
+default.total_match_count,1,0.02
+membership_change,1,0.02
+runtime.load_success,1,0.02
+runtime.override_dir_not_exists,1,0.02
+upstream_cx_http1_total,4,0.07
+upstream_cx_rx_bytes_total,11459870,190997.80
+upstream_cx_total,4,0.07
+upstream_cx_tx_bytes_total,2460000,40999.99
+upstream_rq_pending_total,1,0.02
+upstream_rq_total,60000,1000.00
+

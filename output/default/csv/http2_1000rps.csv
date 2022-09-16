@@ -1,0 +1,72 @@
+Nighthawk - A layer 7 protocol benchmarking tool.
+
+benchmark_http_client.latency_2xx (59997 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 537us,0s 000ms 935us,0s 036ms 257us,0s 001ms 278us
+Percentile,Count,Value(microseconds),Value
+0.5,30026,715,0s 000ms 715us
+0.75,45001,739,0s 000ms 739us
+0.8,48001,749,0s 000ms 749us
+0.9,53999,853,0s 000ms 853us
+0.95,56998,1461,0s 001ms 461us
+0.990625,59435,6458,0s 006ms 458us
+0.99902344,59939,19610,0s 019ms 610us
+
+Queueing and connection setup latency (60000 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 047us,0s 000ms 058us,0s 002ms 684us,0s 000ms 019us
+Percentile,Count,Value(microseconds),Value
+0.5,30035,55,0s 000ms 055us
+0.75,45001,57,0s 000ms 057us
+0.8,48008,57,0s 000ms 057us
+0.9,54000,62,0s 000ms 062us
+0.95,57002,70,0s 000ms 070us
+0.990625,59438,104,0s 000ms 104us
+0.99902344,59942,146,0s 000ms 146us
+
+Request start to response end (59997 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 537us,0s 000ms 934us,0s 036ms 255us,0s 001ms 278us
+Percentile,Count,Value(microseconds),Value
+0.5,30018,714,0s 000ms 714us
+0.75,45005,739,0s 000ms 739us
+0.8,48003,748,0s 000ms 748us
+0.9,53998,853,0s 000ms 853us
+0.95,56998,1461,0s 001ms 461us
+0.990625,59435,6458,0s 006ms 458us
+0.99902344,59939,19610,0s 019ms 610us
+
+Response body size in bytes (59997 samples)
+Min,Mean,Max,Pstdev
+10,10,10,0
+
+Response header size in bytes (59997 samples)
+Min,Mean,Max,Pstdev
+140,140.00245012250573,141,0.049438036023218654
+
+Initiation to completion (59997 samples)
+Min,Mean,Max,Pstdev
+0s 000ms 611us,0s 001ms 017us,0s 036ms 341us,0s 001ms 292us
+Percentile,Count,Value(microseconds),Value
+0.5,30005,791,0s 000ms 791us
+0.75,44999,819,0s 000ms 819us
+0.8,48000,829,0s 000ms 829us
+0.9,53998,945,0s 000ms 945us
+0.95,56998,1570,0s 001ms 570us
+0.990625,59435,6600,0s 006ms 600us
+0.99902344,59939,19793,0s 019ms 793us
+
+Counter,Value,Per second
+benchmark.http_2xx,59997,999.95
+cluster_manager.cluster_added,1,0.02
+default.total_match_count,1,0.02
+membership_change,1,0.02
+runtime.load_success,1,0.02
+runtime.override_dir_not_exists,1,0.02
+upstream_cx_http2_total,1,0.02
+upstream_cx_rx_bytes_total,3001509,50025.14
+upstream_cx_total,1,0.02
+upstream_cx_tx_bytes_total,780100,13001.66
+upstream_rq_pending_total,1,0.02
+upstream_rq_total,60000,1000.00
+

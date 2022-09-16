@@ -1,0 +1,86 @@
+admin:
+  access_log_path: /tmp/admin_access.log
+  address:
+    socket_address:
+      protocol: TCP
+      address: 127.0.0.1
+      port_value: 9901
+default_socket_interface: "envoy.extensions.network.socket_interface.io_uring"
+bootstrap_extensions:
+  - name: envoy.extensions.network.socket_interface.default_socket_interface
+    typed_config:
+      "@type": type.googleapis.com/envoy.extensions.network.socket_interface.v3.IoUringSocketInterface
+# bootstrap_extensions:
+#  - name: envoy.extensions.io_socket.io_uring
+#    typed_config:
+#      "@type": type.googleapis.com/envoy.extensions.network.socket_interface.v3.IoUringSocketInterface
+
+# bootstrap_extensions:
+# - name: envoy.bootstrap.internal_listener
+#   typed_config:
+#     "@type": "type.googleapis.com/envoy.extensions.bootstrap.internal_listener.v3.InternalListener"
+# bootstrap_extensions:
+#   - name: envoy.bootstrap.wasm
+#     typed_config:
+#       "@type": type.googleapis.com/envoy.extensions.wasm.3.WasmService
+
+# bootstrap_extensions:
+#   - name: envoy.bootstrap.wasm
+#     typed_config:
+#       "@type": type.googleapis.com/envoy.extensions.wasm.v3.WasmService
+#       singleton: true
+
+# bootstrap_extensions:
+# - name: envoy_test.bootstrap.foo
+#   typed_config:
+#     "@type": type.googleapis.com/test.common.config.DummyConfig
+#     a: foo
+
+static_resources:
+  listeners:
+  - name: my_listener
+    address:
+      socket_address:
+        protocol: TCP
+        address: 0.0.0.0
+        port_value: 13333
+
+    filter_chains:
+    - filters:
+      # The HTTP connection manager is the only network filter.
+      - name: envoy.filters.network.http_connection_manager
+        typed_config:
+          "@type": type.googleapis.com/envoy.extensions.filters.network.http_connection_manager.v3.HttpConnectionManager
+          stat_prefix: ingress_http
+          route_config:
+            name: local_route
+            virtual_hosts:
+            - name: local_service
+              domains: ["*"]
+              routes:
+              - match:
+                  path: "/"
+                route:
+                  cluster: my_cluster
+
+          http_filters:
+          - name: envoy.filters.http.router
+            typed_config:
+              "@type": type.googleapis.com/envoy.extensions.filters.http.router.v3.Router
+
+  clusters:
+  - name: my_cluster
+    connect_timeout: 0.25s
+    type: strict_dns
+    lb_policy: round_robin
+    protocol_selection: USE_DOWNSTREAM_PROTOCOL
+    http2_protocol_options: {}
+    load_assignment:
+      cluster_name: my_cluster
+      endpoints:
+      - lb_endpoints:
+        - endpoint:
+            address:
+              socket_address:
+                address: 0.0.0.0
+                port_value: 33333
